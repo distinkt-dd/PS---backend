@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model StackItem {
+  id          String               @id @default(cuid())
+  name        String               @unique
+  description String?
+  imageSrc    String?              @map("image_src")
+  createAt    DateTime             @default(now()) @map("create_at")
+  updatedAt   DateTime             @updatedAt @map("updated_at")
+  portfolios  PortfolioStackItem[]
+
+  @@map("stack_items")
+}
+
+model PortfolioItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  siteLink    String?  @map("site_link")
+  githubLink  String?  @map("github_link")
+  createAt    DateTime @default(now()) @map("create_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  stacks PortfolioStackItem[]
+
+  @@map("portfolio_items")
+}
+
+model PortfolioStackItem {
+  portfolioItem   PortfolioItem @relation(fields: [portfolioItemId], references: [id])
+  portfolioItemId String        @map("portfolio_item_id")
+
+  stackItem   StackItem @relation(fields: [stackItemId], references: [id])
+  stackItemId String    @map("stack_item_id")
+  createAt    DateTime  @default(now()) @map("create_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@id([portfolioItemId, stackItemId])
+  @@map("portfolio_stack_items")
+}
+
+model Service {
+  id                         String                      @id @default(cuid())
+  title                      String                      @map("title")
+  description                String                      @map("description")
+  minSum                     Int                         @map("min_sum")
+  maxSum                     Int                         @map("max_sum")
+  createAt                   DateTime                    @default(now()) @map("create_at")
+  updatedAt                  DateTime                    @updatedAt @map("updated_at")
+  serviceCategoryItems       ServiceCategoryItem[]
+  serviceDangerCategoryItems ServiceDangerCategoryItem[]
+  serviceDescriptionItems    ServiceDescriptionItem[]
+
+  @@map("services")
+}
+
+model DescriptionItem {
+  id          String @id @default(cuid())
+  description String @map("description")
+
+  createAt                DateTime                 @default(now()) @map("create_at")
+  updatedAt               DateTime                 @updatedAt @map("updated_at")
+  serviceDescriptionItems ServiceDescriptionItem[]
+
+  @@map("description_items")
+}
+
+model Category {
+  id                   String                @id @default(cuid())
+  categoryName         String                @map("category_name")
+  createAt             DateTime              @default(now()) @map("create_at")
+  updatedAt            DateTime              @updatedAt @map("updated_at")
+  serviceCategoryItems ServiceCategoryItem[]
+
+  @@map("categories")
+}
+
+model DangerCategory {
+  id                         String                      @id @default(cuid())
+  categoryName               String                      @map("category_name")
+  createAt                   DateTime                    @default(now()) @map("create_at")
+  updatedAt                  DateTime                    @updatedAt @map("updated_at")
+  serviceDangerCategoryItems ServiceDangerCategoryItem[]
+
+  @@map("danger_categories")
+}
+
+model ServiceCategoryItem {
+  services   Service  @relation(fields: [serviceId], references: [id])
+  serviceId  String   @map("service_id")
+  categories Category @relation(fields: [categoryId], references: [id])
+  categoryId String   @map("category_id")
+  createAt   DateTime @default(now()) @map("create_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@id([serviceId, categoryId])
+  @@map("service_category_items")
+}
+
+model ServiceDangerCategoryItem {
+  services         Service        @relation(fields: [serviceId], references: [id])
+  serviceId        String         @map("service_id")
+  dangerCategories DangerCategory @relation(fields: [dangerCategoryId], references: [id])
+  dangerCategoryId String         @map("danger_category_id")
+  createAt         DateTime       @default(now()) @map("create_at")
+  updatedAt        DateTime       @updatedAt @map("updated_at")
+
+  @@id([serviceId, dangerCategoryId])
+  @@map("service_danger_category_items")
+}
+
+model ServiceDescriptionItem {
+  services      Service         @relation(fields: [serviceId], references: [id])
+  serviceId     String          @map("service_id")
+  descriptions  DescriptionItem @relation(fields: [descriptionId], references: [id])
+  descriptionId String          @map("description_id")
+  createAt      DateTime        @default(now()) @map("create_at")
+  updatedAt     DateTime        @updatedAt @map("updated_at")
+
+  @@id([serviceId, descriptionId])
+  @@map("service_description_items")
+}
+
+model Review {
+  id         String      @id @default(cuid())
+  firstName  String      @map("first_name")
+  lastName   String      @map("last_name")
+  textReview String      @map("text_review")
+  success    SuccessItem @relation(fields: [successId], references: [id])
+  successId  String      @map("success_id")
+  createAt   DateTime    @default(now()) @map("create_at")
+  updatedAt  DateTime    @updatedAt @map("updated_at")
+
+  @@map("reviews")
+}
+
+model SuccessItem {
+  id          String   @id @default(cuid())
+  description String   @map("description")
+  reviews     Review[]
+  createAt    DateTime @default(now()) @map("create_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("success_items")
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  firstName String   @default("Имя пользователя") @map("first_name")
+  lastName  String   @default("Фамилия пользователя") @map("last_name")
+  email     String   @default("Не указана") @map("email")
+  phone     String   @default("Не указан") @map("phone")
+  comment   String   @default("Комментарий не указан") @map("comment")
+  createAt  DateTime @default(now()) @map("create_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("messages")
+}
