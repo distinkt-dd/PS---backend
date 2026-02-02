@@ -1,9 +1,8 @@
-import { Request, Response, Router } from 'express'
 import { validate } from '@/middleware/validate.middleware'
+import { Request, Response, Router } from 'express'
+import { error } from 'node:console'
 import { createMessageDto } from './dto/message.create.dto'
 import { MessageService } from './message.service'
-import { error } from 'node:console'
-import { success } from 'zod'
 
 const router = Router()
 const messageService = new MessageService()
@@ -28,7 +27,7 @@ router.get('/', async (req: Request, res: Response) => {
 	} catch (e) {
 		res
 			.status(500)
-			.json({ message: `Ошибка получения всех сообщений: ${error}` })
+			.json({ message: `Ошибка получения всех сообщений: ${e}` })
 	}
 })
 

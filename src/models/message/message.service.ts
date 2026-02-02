@@ -1,5 +1,5 @@
-import prisma from '@/prisma'
 import { Message } from '@/generated/prisma/client'
+import prisma from '@/prisma'
 import { CreateMessageDto } from './dto/message.create.dto'
 
 export class MessageService {
