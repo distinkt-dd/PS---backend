@@ -1,0 +1,163 @@
+{
+  "info": {
+    "_postman_id": "b9a532f2-2a2b-4144-a677-32afab988655",
+    "name": "PS-Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "messages.getAll",
+          "id": "bd3b2fc9-9d29-4a9e-ab17-a90f483b8c03",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}messages",
+              "host": [
+                "{{baseUrl}}messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "messages.create",
+          "id": "8a185526-44f5-4aa2-addd-6703a47e180d",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Дмитрий\",\r\n    \"lastName\": \"Демаков\",\r\n    \"phone\": \"+79239192312\",\r\n    \"comment\": \"whats is it muther fucker\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}messages",
+              "host": [
+                "{{baseUrl}}messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "messages.delete",
+          "id": "53a602ab-c9a5-4d87-b58e-4822bd2150d0",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}messages/cml4qyqe60002vcnrjffb61a5",
+              "host": [
+                "{{baseUrl}}messages"
+              ],
+              "path": [
+                "cml4qyqe60002vcnrjffb61a5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "373cc75b-03ef-44b3-876a-01ebfb5c8763"
+    },
+    {
+      "name": "reviews",
+      "item": [
+        {
+          "name": "reviews.create",
+          "id": "df40953c-1034-4b87-a794-c7b2bcf1beb1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Дasd\",\r\n    \"lastName\": \"Демаков\",\r\n    \"textReview\": \"Очеasdasdas\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}reviews",
+              "host": [
+                "{{baseUrl}}reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews.getall",
+          "id": "13a6db6a-49fb-4be0-9e16-f35625838e6e",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}reviews",
+              "host": [
+                "{{baseUrl}}reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews.update",
+          "id": "2d357049-4ad7-4183-a7fc-290500eeeb9f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"VERIFIED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}reviews/updated/cml4ydxca0000kcnruns2plg6",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "updated",
+                "cml4ydxca0000kcnruns2plg6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews.delete",
+          "id": "46ff3cb9-b72b-4e20-a80e-1dcffa603b0e",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}reviews/cml4t7qzn0000qcnrprf65eeo",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "cml4t7qzn0000qcnrprf65eeo"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "297a6b97-207e-497f-9ea3-fdea5d55a895"
+    }
+  ]
+}
