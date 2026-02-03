@@ -1,0 +1,771 @@
+{
+  "info": {
+    "_postman_id": "81ee6b9d-aecc-4b03-a4a5-e85627bceab1",
+    "name": "PS-Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50082943",
+    "_collection_link": "https://dmitrijbatalin1-3655711.postman.co/workspace/1e76eadf-e762-46d1-81ee-dc42094850d6/collection/50082943-81ee6b9d-aecc-4b03-a4a5-e85627bceab1?action=share&source=collection_link&creator=50082943"
+  },
+  "item": [
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "messages.getAll",
+          "id": "0b331c8c-2e13-4ad8-9c99-8ba9079fa1ed",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}messages",
+              "host": [
+                "{{baseUrl}}messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "messages.create",
+          "id": "492a86d8-8f2d-496a-98c4-43307fcdd1d8",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Дмитрий\",\r\n    \"lastName\": \"Демаков\",\r\n    \"phone\": \"+79239192312\",\r\n    \"comment\": \"whats is it muther fucker\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}messages",
+              "host": [
+                "{{baseUrl}}messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "messages.delete",
+          "id": "b8efd2d4-8a56-4013-a6fd-9a703e51b262",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}messages/cml4qyqe60002vcnrjffb61a5",
+              "host": [
+                "{{baseUrl}}messages"
+              ],
+              "path": [
+                "cml4qyqe60002vcnrjffb61a5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "641ff5bb-f670-464d-ae66-ae3e3cd8907f"
+    },
+    {
+      "name": "reviews",
+      "item": [
+        {
+          "name": "reviews.create",
+          "id": "0e98857e-c189-4274-a073-efa86688ffed",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Дasd\",\r\n    \"lastName\": \"Демаков\",\r\n    \"textReview\": \"Очеasdasdas\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}reviews",
+              "host": [
+                "{{baseUrl}}reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews.getall",
+          "id": "2e46557a-f891-4b36-9d8c-d5b1c599a698",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}reviews",
+              "host": [
+                "{{baseUrl}}reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews.update",
+          "id": "09047e79-517b-4f39-9a6c-29693dcf1e0f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"VERIFIED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}reviews/updated/cml4ydxca0000kcnruns2plg6",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "updated",
+                "cml4ydxca0000kcnruns2plg6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews.delete",
+          "id": "25ca239b-55cb-41cb-8827-5259a7631537",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}reviews/cml4t7qzn0000qcnrprf65eeo",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "cml4t7qzn0000qcnrprf65eeo"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "feca26fc-800d-44f6-89e1-83f5cb9043ed"
+    },
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "categories.create",
+          "id": "6c0a38ef-23ea-45c9-94a5-aea62ff5e5dc",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Frontend\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}categories",
+              "host": [
+                "{{baseUrl}}categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "categories.getall",
+          "id": "1ff1a9e7-0283-4218-9b47-087ad5a2709b",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}categories",
+              "host": [
+                "{{baseUrl}}categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "categories.update",
+          "id": "a4a24537-40f9-44d2-8b3c-cac7adcf4840",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Нет макета\",\r\n    \"categoryType\": \"DANGER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}categories/updated/cml5fmo8g00018ovk39ftpka9",
+              "host": [
+                "{{baseUrl}}categories"
+              ],
+              "path": [
+                "updated",
+                "cml5fmo8g00018ovk39ftpka9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "categories.delete",
+          "id": "fda76011-7ed8-4ed5-8f3a-920320ef54b9",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}categories/cml5fmo8g00018ovk39ftpka9",
+              "host": [
+                "{{baseUrl}}categories"
+              ],
+              "path": [
+                "cml5fmo8g00018ovk39ftpka9"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "bdfe2e84-b083-4799-ab01-ba9b34b336f4"
+    },
+    {
+      "name": "services",
+      "item": [
+        {
+          "name": "services.create",
+          "id": "cb437399-bde9-4f45-88c4-5266b666b601",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Новая услуга\",\r\n    \"description\": \"Описание 2\",\r\n    \"minSum\": 7000,\r\n    \"maxSum\": 50000,\r\n    \"descriptionItems\": []\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}services",
+              "host": [
+                "{{baseUrl}}services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "services.getall",
+          "id": "9e4ff8e5-000b-4223-acfb-b022fe4598b9",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}services",
+              "host": [
+                "{{baseUrl}}services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "services.delete",
+          "id": "b23fa157-336e-454f-84a4-43586c07e6dd",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}services/:id",
+              "host": [
+                "{{baseUrl}}services"
+              ],
+              "path": [
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "cml5hpy7o0000gsvkacxluzfy"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "services.updated",
+          "id": "7b10d514-23bf-4258-919f-cfe865f99240",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"descriptionItems\": []\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}services/updated/cml5hpy7o0000gsvkacxluzfy",
+              "host": [
+                "{{baseUrl}}services"
+              ],
+              "path": [
+                "updated",
+                "cml5hpy7o0000gsvkacxluzfy"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "29c3c02e-234c-44a5-9527-631aafb179f4"
+    },
+    {
+      "name": "category-on-services",
+      "item": [
+        {
+          "name": "category-on-services.assignOnce",
+          "id": "3896e190-a414-4acf-a108-7f6697426bda",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"serviceId\": \"cml5hpy7o0000gsvkacxluzfy\",\r\n    \"categoryId\": \"cml5fjxls00008ovkjypwr0oj\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}category-on-services",
+              "host": [
+                "{{baseUrl}}category-on-services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "category-on-services.assignMore",
+          "id": "62203ce6-ea0b-4535-94d8-fe82c290b509",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryIds\": [\"cml5fjxls00008ovkjypwr0oj\", \"cml5l7fn90001zwvkpd4oxsyk\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}category-on-services/service/cml6qfmai0000psvkupra48a1/assign-categories",
+              "host": [
+                "{{baseUrl}}category-on-services"
+              ],
+              "path": [
+                "service",
+                "cml6qfmai0000psvkupra48a1",
+                "assign-categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "category-on-services.getAll",
+          "id": "d655e43d-0ff7-4f71-ae05-b0ac9cbd37bb",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}category-on-services",
+              "host": [
+                "{{baseUrl}}category-on-services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "category-on-service.deleterelation",
+          "id": "2f3541dc-4b87-4d11-b52c-5cadaf5efee0",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}category-on-services/cml5lnuyo0001x0vk71znu50l",
+              "host": [
+                "{{baseUrl}}category-on-services"
+              ],
+              "path": [
+                "cml5lnuyo0001x0vk71znu50l"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "category-on-services.deleteRelationByServiceIdAndCategoryId",
+          "id": "7f27109f-059b-4fce-b9d1-c8f521c54d53",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}category-on-services/service/:serviceId/category/:categoryId",
+              "host": [
+                "{{baseUrl}}category-on-services"
+              ],
+              "path": [
+                "service",
+                ":serviceId",
+                "category",
+                ":categoryId"
+              ],
+              "variable": [
+                {
+                  "key": "serviceId",
+                  "value": "cml5l84pt0002zwvk7y4is92z"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "cml5fjxls00008ovkjypwr0oj"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "category-on-services.getCategoriesByServiceId",
+          "id": "5d5730fa-8e2d-41a8-b5e5-caffa0f0e64a",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}category-on-services/service/:serviceId/categories",
+              "host": [
+                "{{baseUrl}}category-on-services"
+              ],
+              "path": [
+                "service",
+                ":serviceId",
+                "categories"
+              ],
+              "variable": [
+                {
+                  "key": "serviceId",
+                  "value": "cml5l84pt0002zwvk7y4is92z"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "f94cc756-9f2e-441d-bc0d-8c0cb2702ff5"
+    },
+    {
+      "name": "stack-items",
+      "item": [
+        {
+          "name": "stack-items.getall",
+          "id": "18247cfe-3bf7-4b92-8d14-f6a7b7a7e8b2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}stack-items",
+              "host": [
+                "{{baseUrl}}stack-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "stack-items.create",
+          "id": "c0f646f4-6a24-4d4c-8d44-661822c31c8b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "JavaScrip",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "JS - это интерпретируемый язык программирования высокого уровня, который в основном используется для веб-разработки.",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/D:/browserDownloads/js.svg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}stack-items",
+              "host": [
+                "{{baseUrl}}stack-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "stack-items",
+          "id": "46b2415b-1d7b-47e3-a586-cdb2cbdca8ca",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "HTML",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Хочу теперь чтобы здесь был HTML description",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/D:/browserDownloads/html.svg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}stack-items/cml6kjngb000098vkel1yefu6",
+              "host": [
+                "{{baseUrl}}stack-items"
+              ],
+              "path": [
+                "cml6kjngb000098vkel1yefu6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "stack-items.delete",
+          "id": "8f15a369-e672-4a15-a28e-d41838eb8f4b",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}stack-items/:id",
+              "host": [
+                "{{baseUrl}}stack-items"
+              ],
+              "path": [
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "cml6kjngb000098vkel1yefu6"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "b915cbd4-5e6a-4854-9be7-a4e741b0e607"
+    },
+    {
+      "name": "portfolio-items",
+      "item": [
+        {
+          "name": "portfolio-items.getAll",
+          "id": "d3cfb815-bd3f-4f42-913d-ac8fd37b71ac",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}portfolio-items",
+              "host": [
+                "{{baseUrl}}portfolio-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "portfolio-items.create",
+          "id": "f46e93dd-d82d-49e7-99af-39354eafa1ea",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "ITdeas (Frontend - часть)",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "ITdeas - приложение для поиска партнеров для реализации IT проектов. Авторы придумывают идеи и выкладывают их в ленту, а заинтерисовашиеся разработчики делают отклики.",
+                  "type": "text"
+                },
+                {
+                  "key": "siteLink",
+                  "value": "https://distinkt-dd.github.io/ITdeas/#/",
+                  "type": "text"
+                },
+                {
+                  "key": "gitHubLink",
+                  "value": "https://github.com/distinkt-dd/ITdeas",
+                  "type": "text"
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": [
+                    "/D:/browserDownloads/Auth.png",
+                    "/D:/browserDownloads/dashboard.png"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}portfolio-items",
+              "host": [
+                "{{baseUrl}}portfolio-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "portfolio-items.update",
+          "id": "d39e1fd2-7870-4760-8d08-b5d89adfdb9e",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": "/D:/browserDownloads/Frame 88.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}portfolio-items/:id",
+              "host": [
+                "{{baseUrl}}portfolio-items"
+              ],
+              "path": [
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "cml6p15ba0001rsvkfq5ccul8"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "portfolio-items.delete",
+          "id": "7d343ed2-cb40-4a33-b831-e20a5d4d5fe2",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}portfolio-items/:id",
+              "host": [
+                "{{baseUrl}}portfolio-items"
+              ],
+              "path": [
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "cml6p17ih0002rsvkiy37so6g"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "290da3e9-1b9e-4ecb-80dd-526434423c97"
+    }
+  ]
+}

@@ -3,7 +3,9 @@
     "id": "1e76eadf-e762-46d1-81ee-dc42094850d6"
   },
   "entities": {
-    "collections": [],
+    "collections": [
+      "..\\postman\\collections\\PS-Backend.postman_collection.json"
+    ],
     "environments": [],
     "specs": [],
     "flows": [],
