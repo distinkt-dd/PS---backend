@@ -1,10 +1,15 @@
-import { messageRouter } from '@/models/message/message.controller'
+import { messageRouter } from '@/models/message/message.routes'
 import prisma from '@/prisma'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { NextFunction, Request, Response } from 'express'
 import path from 'node:path'
-import { reviewRouter } from './models/reviews/reviews.controller'
+import { reviewRouter } from './models/reviews/reviews.routes'
+import categoryRouter from './models/category/category.routes'
+import serviceRouter from './models/service/service.routes'
+import categoryOnServiceRouter from './models/categories-on-service/categories-on-service.routes'
+import stackItemRouter from './models/stack-item/stack-item.routes'
+import portfolioItemRouter from './models/portfolio-item/portfolio-item.routes'
 dotenv.config()
 const app = express()
 app.use(
@@ -19,6 +24,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.use('/api/messages', messageRouter)
 app.use('/api/reviews', reviewRouter)
+app.use('/api/categories', categoryRouter)
+app.use('/api/services', serviceRouter)
+app.use('/api/category-on-services', categoryOnServiceRouter)
+app.use('/api/stack-items', stackItemRouter)
+app.use('/api/portfolio-items', portfolioItemRouter)
 
 app.use((req: Request, res: Response) => {
 	res.status(404).json({

@@ -1,57 +1,47 @@
-import { validate } from '@/middleware/validate.middleware'
-import { Request, Response, Router } from 'express'
-import { error } from 'node:console'
-import { createMessageDto } from './dto/message.create.dto'
+import { Request, Response } from 'express'
 import { MessageService } from './message.service'
 
-const router = Router()
-const messageService = new MessageService()
+export class MessageController {
+  constructor(private messageService: MessageService) {}
 
-router.post(
-	'/',
-	validate(createMessageDto),
-	async (req: Request, res: Response) => {
-		try {
-			const message = await messageService.createMessage(req.body)
-			res.status(201).json(message)
-		} catch (e) {
-			res.status(500).json({ message: `Ошибка отправки сообщения: ${error}` })
-		}
-	},
-)
+  async createMessage(req: Request, res: Response) {
+    try {
+      const message = await this.messageService.createMessage(req.body)
+      res.status(201).json(message)
+    } catch (e) {
+      res.status(500).json({ message: `Ошибка отправки сообщения: ${e}` })
+    }
+  }
 
-router.get('/', async (req: Request, res: Response) => {
-	try {
-		const messages = await messageService.getMessages()
-		res.status(201).json(messages)
-	} catch (e) {
-		res
-			.status(500)
-			.json({ message: `Ошибка получения всех сообщений: ${e}` })
-	}
-})
+  async getMessages(req: Request, res: Response) {
+    try {
+      const messages = await this.messageService.getMessages()
+      res.status(201).json(messages)
+    } catch (e) {
+      res.status(500).json({ message: `Ошибка получения всех сообщений: ${e}` })
+    }
+  }
 
-router.delete('/:id', async (req: Request, res: Response) => {
-	try {
-		const { id } = req.params
-		if (Array.isArray(id)) {
-			return res.status(400).json({
-				success: false,
-				message: 'Неверный формат id',
-			})
-		}
-		await messageService.deleteMessage(id)
-		res.json({
-			success: true,
-			message: 'Сообщение удалено!',
-		})
-	} catch (e) {
-		console.error(`Ошибка удаления сообщения: ${e}`)
-		res.status(500).json({
-			success: false,
-			message: 'Не удалось удалить сообщение. Возможно сообщение уже удалено!',
-		})
-	}
-})
-
-export const messageRouter = router
+  async deleteMessage(req: Request, res: Response) {
+    try {
+      const { id } = req.params
+      if (Array.isArray(id)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Неверный формат id',
+        })
+      }
+      await this.messageService.deleteMessage(id)
+      res.json({
+        success: true,
+        message: 'Сообщение удалено!',
+      })
+    } catch (e) {
+      console.error(`Ошибка удаления сообщения: ${e}`)
+      res.status(500).json({
+        success: false,
+        message: 'Не удалось удалить сообщение. Возможно сообщение уже удалено!',
+      })
+    }
+  }
+}

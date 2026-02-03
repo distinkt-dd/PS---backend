@@ -3,24 +3,25 @@ import { z } from 'zod'
 export const serviceCreateDto = z.object({
 	title: z
 		.string()
-		.min(2, { message: 'Минимальная длина названия услуги: 2 симовла' })
-		.max(100, { message: 'Максимальная длина названия услуги: 100 символов' }),
+		.min(2, 'Минимальная длина названия - 2 символа')
+		.max(50, 'Максимальная длина названия - 50 символов'),
 	description: z
 		.string()
-		.min(10, { message: 'Минимальная длина описания: 10 символов' })
-		.max(1000, { message: 'Максимальная длина описания: 1000 символов' })
-		.optional(),
+		.min(1, 'Описание не может быть пустым')
+		.max(1500, 'Максимальная длина описания - 1500 символов'),
 	minSum: z
-		.number({
-			message: 'Значения минимальной суммы не является числом',
-		})
-		.min(0, { message: 'Минимальная сумма не может быть отрицательной' }),
+		.number()
+		.min(1, 'Минимальная сумма за работу не может быь пустой')
+		.positive('Минимальная сумма не может быть отрицательной'),
 	maxSum: z
-		.number({ message: 'Значения максимальной суммы не является числом' })
-		.positive({ message: 'Максимальная сумма должна быть положительной' }),
+		.number()
+		.min(1, 'Максимальная сумма за работу не может быь пустой')
+		.positive('Максимальная сумма не может быть отрицательной'),
+	descriptionItems: z.array(z.string()).optional().default([]),
+	categoryIds: z.array(z.string()).optional(),
 })
 
-export const serviceUpdatedDto = serviceCreateDto.partial()
+export const serviceUpdateDto = serviceCreateDto.partial()
 
 export type ServiceCreateDto = z.infer<typeof serviceCreateDto>
-export type ServiceUpdatedDto = z.infer<typeof serviceUpdatedDto>
+export type ServiceUpdateDto = z.infer<typeof serviceUpdateDto>

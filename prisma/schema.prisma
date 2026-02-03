@@ -15,62 +15,56 @@ model StackItem {
   createAt    DateTime @default(now()) @map("create_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  portfolioItem PortfolioItem[]
-
   @@map("stack_items")
 }
 
 model PortfolioItem {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  siteLink    String?  @map("site_link")
-  githubLink  String?  @map("github_link")
-  createAt    DateTime @default(now()) @map("create_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-
-  stack   StackItem? @relation(fields: [stackId], references: [id])
-  stackId String?    @map("stack_id")
+  id           String   @id @default(cuid())
+  title        String
+  description  String?
+  siteLink     String?  @map("site_link")
+  gitHubLink   String?  @map("github_link")
+  createAt     DateTime @default(now()) @map("create_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  imageSources String[] @default([]) @map("image_sources")
 
   @@map("portfolio_items")
 }
 
 model Service {
-  id               String            @id @default(cuid())
-  title            String            @map("title")
-  description      String            @map("description")
-  minSum           Int               @map("min_sum")
-  maxSum           Int               @map("max_sum")
-  createAt         DateTime          @default(now()) @map("create_at")
-  updatedAt        DateTime          @updatedAt @map("updated_at")
-  descriptionItems DescriptionItem[]
-  categories       Category[]
+  id                 String              @id @default(cuid())
+  title              String              @map("title")
+  description        String              @map("description")
+  descriptionItems   String[]            @default([]) @map("description_items")
+  minSum             Int                 @map("min_sum")
+  maxSum             Int                 @map("max_sum")
+  createAt           DateTime            @default(now()) @map("create_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  categoryOnServices CategoryOnService[]
 
   @@map("services")
 }
 
-model DescriptionItem {
-  id          String @id @default(cuid())
-  description String @map("description")
+model CategoryOnService {
+  id         String   @id @default(cuid())
+  service    Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  serviceId  String   @map("service_id")
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String   @map("category_id")
+  createAt   DateTime @default(now()) @map("create_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
 
-  createAt  DateTime @default(now()) @map("create_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  service   Service @relation(fields: [serviceId], references: [id])
-  serviceId String  @map("service_id")
-
-  @@map("description_items")
+  @@unique([serviceId, categoryId])
+  @@map("categories_on_services")
 }
 
 model Category {
-  id           String       @id @default(cuid())
-  categoryName String       @map("category_name")
-  categoryType CategoryType @default(DEFAULT)
-  createAt     DateTime     @default(now()) @map("create_at")
-  updatedAt    DateTime     @updatedAt @map("updated_at")
-
-  service   Service @relation(fields: [serviceId], references: [id])
-  serviceId String  @map("service_id")
+  id                 String              @id @default(cuid())
+  categoryName       String              @map("category_name")
+  categoryType       CategoryType        @default(DEFAULT)
+  createAt           DateTime            @default(now()) @map("create_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  categoryOnServices CategoryOnService[]
 
   @@map("categories")
 }
