@@ -10,7 +10,6 @@ RUN npm ci
 
 ENV DATABASE_URL="postgresql://postgres:NGsjPvwhWwAWoRhCqNbLPhLJsEJxluYb@postgres.railway.internal:5432/railway"
 RUN npx prisma generate
-RUN npx prisma db push
 COPY . .
 RUN npm run build
 RUN npm prune --production
