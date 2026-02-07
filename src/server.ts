@@ -20,6 +20,14 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    service: 'PS-backend'
+  });
+});
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.use('/api/messages', messageRouter)
@@ -43,6 +51,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 		error: process.env.NODE_ENV === 'development' ? err.message : undefined,
 	})
 })
+
 
 async function main() {
 	await prisma.$connect()
