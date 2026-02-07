@@ -1,0 +1,22 @@
+# Railway конфигурация
+[build]
+# Используем Nixpacks для автоматического определения стека
+builder = "nixpacks"
+buildCommand = "npm run build"
+startCommand = "npm start"
+
+[deploy]
+# Health check для Railway (обязательно!)
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+# Переменные окружения по умолчанию
+[variables]
+NODE_ENV = "production"
+PORT = "3000"
+
+# Плагины (опционально)
+[plugins]
+"@railway/plugin-postgres" = { version = "latest" }
