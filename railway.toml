@@ -1,40 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm run build"
-startCommand = "npm start"
-
-# Обновить версию Node.js до 22.12 или выше
-nixpacksConfig = """
-{
-  "providers": ["node"],
-  "phases": {
-    "setup": {
-      "nixPkgs": ["nodejs_24"],  # <-- Изменить на nodejs_24
-      "aptPkgs": ["python3", "make", "g++"]
-    },
-    "install": {
-      "cmd": "npm ci --omit=dev"
-    },
-    "build": {
-      "cmd": "npm run build"
-    }
-  },
-  "start": {
-    "cmd": "npm start"
-  }
-}
-"""
 
 [deploy]
 healthcheckPath = "/health"
-healthcheckTimeout = 30
-healthcheckInterval = 60
-restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 10
-
-[deploy.after]
-migrate = "npm run prisma:migrate"
 
 [variables]
 NODE_ENV = "production"
-PORT = "3000"
+PORT = "4200"

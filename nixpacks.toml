@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["nodejs-20_x"]  # или "nodejs-22_x", "nodejs-24_x"
+aptPkgs = ["python3", "make", "g++"]
+
+[phases.install]
+cmds = ["npm ci --omit=dev"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"
