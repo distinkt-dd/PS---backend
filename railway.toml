@@ -4,10 +4,13 @@ dockerfile = "Dockerfile"
 [deploy]
 healthcheckPath = "/health"
 healthcheckTimeout = 30
-restartPolicyType = "on_failure"
+healthcheckInterval = 15
+restartPolicyType = "always"
 
-[deploy.after]
-migrate = "npx prisma migrate deploy"
+# Ключевой момент: Добавьте хук для миграций ПОСЛЕ деплоя
+[hooks.postDeploy]
+command = "npx prisma migrate deploy"
+timeout = 60
 
 [variables]
 NODE_ENV = "production"
