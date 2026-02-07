@@ -771,12 +771,5 @@
       ],
       "id": "290da3e9-1b9e-4ecb-80dd-526434423c97"
     }
-  ],
-  "variable": [
-    {
-      "id": "345d679b-ee1c-43fa-9d80-ec60da8ed7a3",
-      "key": "baseUrl",
-      "value": ""
-    }
   ]
 }
