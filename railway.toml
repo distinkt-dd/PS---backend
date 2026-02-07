@@ -1,9 +1,14 @@
 [build]
-builder = "nixpacks"
+dockerfile = "Dockerfile"
 
 [deploy]
 healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+
+[deploy.after]
+migrate = "npx prisma migrate deploy"
 
 [variables]
 NODE_ENV = "production"
-PORT = "4200"
+PORT = "3000"

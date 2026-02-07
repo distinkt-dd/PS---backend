@@ -2,18 +2,15 @@
 	"name": "PS-backend",
 	"version": "1.0.0",
 	"engines": {
-		"node": ">=20.19.0",
-		"npm": ">=10.0.0"
+		"node": ">=20.0.0"
 	},
-	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"dev": "ts-node-dev --respawn --transpile-only --exit-child --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\" -r tsconfig-paths/register src/server.ts",
 		"build": "prisma generate && tsc",
 		"start": "node dist/server.js",
 		"prisma:migrate": "prisma migrate deploy",
-		"prisma:generate": "prisma generate",
-		"prisma:studio": "prisma studio"
+		"prisma:generate": "prisma generate"
 	},
 	"keywords": [],
 	"author": "",
