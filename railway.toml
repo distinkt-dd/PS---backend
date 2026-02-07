@@ -3,7 +3,7 @@
 # Используем Nixpacks для автоматического определения стека
 builder = "nixpacks"
 buildCommand = "npm run build"
-startCommand = "npm start"
+startCommand = "npm run dev"
 
 [deploy]
 # Health check для Railway (обязательно!)
