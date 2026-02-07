@@ -1,22 +1,41 @@
-# Railway конфигурация
 [build]
-# Используем Nixpacks для автоматического определения стека
 builder = "nixpacks"
 buildCommand = "npm run build"
-startCommand = "npm run dev"
+startCommand = "npm start"
+
+# Конфигурация для Node.js 20 и TypeScript
+nixpacksConfig = """
+{
+  "providers": ["node"],
+  "phases": {
+    "setup": {
+      "nixPkgs": ["nodejs_20"],
+      "aptPkgs": ["python3", "make", "g++"]
+    },
+    "install": {
+      "cmd": "npm ci --omit=dev"
+    },
+    "build": {
+      "cmd": "npm run build"
+    }
+  },
+  "start": {
+    "cmd": "npm start"
+  }
+}
+"""
 
 [deploy]
-# Health check для Railway (обязательно!)
 healthcheckPath = "/health"
 healthcheckTimeout = 30
+healthcheckInterval = 60
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
 
-# Переменные окружения по умолчанию
+# Скрипт, который выполняется после успешного деплоя
+[deploy.after]
+migrate = "npm run prisma:migrate"
+
 [variables]
 NODE_ENV = "production"
 PORT = "3000"
-
-# Плагины (опционально)
-[plugins]
-"@railway/plugin-postgres" = { version = "latest" }
