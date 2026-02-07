@@ -2,9 +2,7 @@
   "info": {
     "_postman_id": "81ee6b9d-aecc-4b03-a4a5-e85627bceab1",
     "name": "PS-Backend",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "50082943",
-    "_collection_link": "https://dmitrijbatalin1-3655711.postman.co/workspace/1e76eadf-e762-46d1-81ee-dc42094850d6/collection/50082943-81ee6b9d-aecc-4b03-a4a5-e85627bceab1?action=share&source=collection_link&creator=50082943"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
@@ -544,7 +542,9 @@
                 {
                   "key": "image",
                   "type": "file",
-                  "src": "/D:/browserDownloads/js.svg"
+                  "src": [
+                    "/D:/browserDownloads/js.svg"
+                  ]
                 }
               ]
             },
@@ -585,7 +585,9 @@
                 {
                   "key": "image",
                   "type": "file",
-                  "src": "/D:/browserDownloads/html.svg"
+                  "src": [
+                    "/D:/browserDownloads/html.svg"
+                  ]
                 }
               ]
             },
@@ -718,7 +720,9 @@
                 {
                   "key": "images",
                   "type": "file",
-                  "src": "/D:/browserDownloads/Frame 88.png"
+                  "src": [
+                    "/D:/browserDownloads/Frame 88.png"
+                  ]
                 }
               ]
             },
@@ -766,6 +770,13 @@
         }
       ],
       "id": "290da3e9-1b9e-4ecb-80dd-526434423c97"
+    }
+  ],
+  "variable": [
+    {
+      "id": "8a0fe8e2-3c6a-4280-9d31-50a1d96c0b72",
+      "key": "baseUrl",
+      "value": ""
     }
   ]
 }
