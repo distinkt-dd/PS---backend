@@ -6,7 +6,11 @@ healthcheckPath = "/health"
 healthcheckTimeout = 30
 healthcheckInterval = 15
 restartPolicyType = "always"
-startCommand = "npx prisma migrate deploy && npm start"
+
+# Ключевой момент: Добавьте хук для миграций ПОСЛЕ деплоя
+[hooks.postDeploy]
+command = "npx prisma migrate deploy"
+timeout = 60
 
 [variables]
 NODE_ENV = "production"
