@@ -3,13 +3,13 @@ builder = "nixpacks"
 buildCommand = "npm run build"
 startCommand = "npm start"
 
-# Конфигурация для Node.js 20 и TypeScript
+# Обновить версию Node.js до 22.12 или выше
 nixpacksConfig = """
 {
   "providers": ["node"],
   "phases": {
     "setup": {
-      "nixPkgs": ["nodejs_20"],
+      "nixPkgs": ["nodejs_24"],  # <-- Изменить на nodejs_24
       "aptPkgs": ["python3", "make", "g++"]
     },
     "install": {
@@ -32,7 +32,6 @@ healthcheckInterval = 60
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
 
-# Скрипт, который выполняется после успешного деплоя
 [deploy.after]
 migrate = "npm run prisma:migrate"
 
