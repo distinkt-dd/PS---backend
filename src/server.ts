@@ -12,11 +12,7 @@ import stackItemRouter from './models/stack-item/stack-item.routes'
 import portfolioItemRouter from './models/portfolio-item/portfolio-item.routes'
 dotenv.config()
 const app = express()
-app.use(
-	cors({
-		origin: ['http://localhost:3000', 'https://localhost:3000'],
-	}),
-)
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
